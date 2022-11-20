@@ -11,7 +11,7 @@ body {
 }
 
 /* These styles make the root element full-height */
-#root {
+body > div:first-child {
     display: flex;
     height: 100%;
 }
