@@ -11,6 +11,8 @@ This project uses Prettier.
 pnpm format:fix
 ```
 
+You can also set up a [pre-commit hook](https://prettier.io/docs/en/precommit.html).
+
 Run the development server:
 
 ```bash
