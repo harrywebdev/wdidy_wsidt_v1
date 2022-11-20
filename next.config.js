@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     appDir: true,
+    esmExternals: "loose", // FEEDBACK: had to enable this for the db.js import worker error
   },
 }
 

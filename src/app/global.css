@@ -1,0 +1,16 @@
+/* These styles make the body full-height */
+html,
+body {
+    height: 100%;
+}
+
+/* These styles disable body scrolling if you are using <ScrollView> */
+body {
+    margin: 0;
+}
+
+/* These styles make the root element full-height */
+body > div:first-child {
+    display: flex;
+    height: 100%;
+}
