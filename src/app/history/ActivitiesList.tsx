@@ -14,7 +14,6 @@ const ActivitiesList: FC<ActivitiesListProps> = () => {
   const isDataLoading = !useEvoluFirstDataAreLoaded()
 
   const { rows: activities } = useQuery(function selectActivities(db) {
-    // FEEDBACK: I don't see SQL statement errors anywhere, maybe they should console.err?
     return db
       .selectFrom("activity")
       .leftJoin(

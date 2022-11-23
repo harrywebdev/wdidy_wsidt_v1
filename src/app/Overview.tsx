@@ -8,9 +8,12 @@ import ActivityTypeOverview from "./ActivityTypeOverview"
 import HashtagOverview from "./HashtagOverview"
 import Spinner from "../components/Spinner"
 import AddNewHashtag from "./AddNewHashtag"
-import { sql } from "kysely"
+import useHashtags from "../hooks/useHashtags"
+import useActivityTypes from "../hooks/useActivityTypes"
 
-type OverviewProps = {}
+type OverviewProps = {
+  //
+}
 
 const Overview: FC<OverviewProps> = () => {
   // FEEDBACK: I would rename to `useEvoluFirstDataIsLoading` and inverse the flag
@@ -30,22 +33,10 @@ const Overview: FC<OverviewProps> = () => {
 
   const isActivityTypeIdSelected = logActivityTypeId !== null
 
-  const { rows: activityTypes } = useQuery(function selectActivityTypes(db) {
-    return db
-      .selectFrom("activityType")
-      .select(["id", "title", "weight"])
-      .where("isDeleted", "is not", model.cast(true))
-  })
-
-  const { rows: hashtags } = useQuery(function selectHashtags(db) {
-    return db
-      .selectFrom("hashtag")
-      .select(["id", "title"])
-      .where("isDeleted", "is not", model.cast(true))
-  })
+  const { rows: activityTypes } = useActivityTypes()
+  const { rows: hashtags } = useHashtags()
 
   const { rows: activities } = useQuery(function selectActivities(db) {
-    // FEEDBACK: I don't see SQL statement errors anywhere, maybe they shouuld console.err?
     return db
       .selectFrom("activity")
       .select([

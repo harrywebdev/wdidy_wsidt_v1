@@ -24,11 +24,15 @@ const ActivityTypeOverview: FC<ActivityTypeOverviewProps> = ({
     onButtonClick(activityType.id)
   }
 
+  const hasScore = activityType.weight !== null && activityType.weight > 0
+  const score = (activityType.weight || 0) * activitiesCount
+
   return (
     <div>
       <h3>
-        {activityType.title} ({activitiesCount})
+        {activityType.title} {hasScore ? `(${score})` : ""}
       </h3>
+      <p>{activitiesCount} occurrences</p>
       <form onSubmit={handleFormSubmit}>
         <button type={"submit"}>{buttonLabel}</button>
       </form>
