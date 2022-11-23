@@ -30,6 +30,9 @@ const AppHeader: FC<AppHeaderProps> = () => {
             <Link href={"/"}>Index</Link>
           </li>
           <li style={styles.navItem}>
+            <Link href={"/history"}>History</Link>
+          </li>
+          <li style={styles.navItem}>
             <Link href={"/settings"}>Settings</Link>
           </li>
         </ul>

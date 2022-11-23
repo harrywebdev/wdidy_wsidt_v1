@@ -48,21 +48,12 @@ const Overview: FC<OverviewProps> = () => {
     // FEEDBACK: I don't see SQL statement errors anywhere, maybe they shouuld console.err?
     return db
       .selectFrom("activity")
-      .leftJoin(
-        "activitiesHashtags",
-        "activitiesHashtags.activityId",
-        "activity.id",
-      )
       .select([
         "activity.id",
         "activity.activityTypeId",
         "activity.activityDate",
-        sql<string>`group_concat(activitiesHashtags.hashtagId)`.as(
-          "hashtagIds",
-        ),
       ])
       .where("activity.isDeleted", "is not", model.cast(true))
-      .groupBy("activity.id")
       .orderBy("activityDate", "desc")
   })
 
@@ -223,18 +214,6 @@ activity: {
           </pre>
         </div>
       )}
-
-      {activities.map((activity) => (
-        <pre
-          key={activity.id}
-          style={{
-            wordBreak: "break-all",
-            whiteSpace: "break-spaces",
-          }}
-        >
-          {JSON.stringify(activity, null, 2)}
-        </pre>
-      ))}
     </>
   )
 }
