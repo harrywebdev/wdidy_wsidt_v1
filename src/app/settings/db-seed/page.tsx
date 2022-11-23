@@ -4,6 +4,7 @@ import View from "../../../components/View"
 import { useMutation, useQuery } from "../../../lib/db"
 import { Integer, model, NonEmptyString1000 } from "evolu"
 import Link from "next/link"
+import AppHeader from "../../../components/AppHeader"
 
 const activityTypes = [
   { title: "🤖 Work", weight: 0 },
@@ -50,6 +51,7 @@ export default function SettingsDbSeedPage() {
     }
     return (
       <View>
+        <AppHeader />
         <button onClick={seedActivityTypes}>Seed Activity Types</button>
       </View>
     )
@@ -64,6 +66,7 @@ export default function SettingsDbSeedPage() {
     }
     return (
       <View>
+        <AppHeader />
         <button onClick={seedHashtags}>Seed Hashtags</button>
       </View>
     )
@@ -71,6 +74,7 @@ export default function SettingsDbSeedPage() {
 
   return (
     <View>
+      <AppHeader />
       <p>Nothing to do here</p>
       <p>
         <Link href={"/"}>Go to Overview</Link>
