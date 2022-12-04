@@ -1,19 +1,19 @@
 .container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    z-index: 100;
-    height: auto !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 100;
+  height: auto !important;
 }
 
 .error {
-    background: black;
-    color: white;
+  background: black;
+  color: white;
 }
 
 .success {
-    background: lightgrey;
-    color: black;
+  background: lightgrey;
+  color: black;
 }
