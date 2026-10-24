@@ -9,7 +9,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <head />
-      <body>
+      <body className={"body"}>
         <AppStart />
         <NotificationHandler />
         {children}
